@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="icon" type="image/png" href="/favicon.png">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>auto coder</title>
+    <title>JS Snippet Generator</title>
+    <link rel="icon" href="favicon.ico">
     <style>
         /* ===== Body ===== */
         body {
@@ -116,5 +117,16 @@
     <script src="snippets.js"></script>
     <script src="generator.js"></script>
     <script>
-        document.getElementById('generateBtn').addEventListener('click', generateSnippet);
-    </sc
+        window.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('generateBtn');
+            btn.addEventListener('click', () => {
+                if (typeof generateSnippet === 'function') {
+                    generateSnippet();
+                } else {
+                    console.error('generateSnippet() not defined!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
